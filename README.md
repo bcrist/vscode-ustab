@@ -55,6 +55,70 @@ Adjusted versions of some default cursor movement commands are provided.  These 
 * `cursorRight`: When the cursor is at the end of the text of a cell, move to just before the cell separator character.  Otherwise identical to the default `cursorRight` command.
 * `cursorLeftSelect`, `cursorRightSelect`: Same as above, but adjusts the current selection instead of wiping out the selection origin point(s).
 
+You can set up all of these at once by adding this to your `keybindings.json` file:
+```json
+{
+    "key": "tab",
+    "command": "-tab",
+    "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+},
+{
+    "key": "shift+tab",
+    "command": "-outdent",
+    "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+},
+{
+    "key": "left",
+    "command": "-cursorLeft",
+    "when": "textInputFocus"
+},
+{
+    "key": "shift+left",
+    "command": "-cursorLeftSelect",
+    "when": "textInputFocus"
+},
+{
+    "key": "right",
+    "command": "-cursorRight",
+    "when": "textInputFocus"
+},
+{
+    "key": "shift+right",
+    "command": "-cursorRightSelect",
+    "when": "textInputFocus"
+},
+{
+    "key": "tab",
+    "command": "ustab.tab",
+    "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+},
+{
+    "key": "shift+tab",
+    "command": "ustab.outdent",
+    "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+},
+{
+    "key": "left",
+    "command": "ustab.cursorLeft",
+    "when": "textInputFocus"
+},
+{
+    "key": "shift+left",
+    "command": "ustab.cursorLeftSelect",
+    "when": "textInputFocus"
+},
+{
+    "key": "right",
+    "command": "ustab.cursorRight",
+    "when": "textInputFocus"
+},
+{
+    "key": "shift+right",
+    "command": "ustab.cursorRightSelect",
+    "when": "textInputFocus"
+}
+```
+
 ## Known Limitations & Issues
 * Use of tab characters may cause table misalignments unless every line of a table uses tabs in the same places
 * Use of unicode codepoints outside the BMP within a table may cause unexpected behavior
